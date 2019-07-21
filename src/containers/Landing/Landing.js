@@ -8,7 +8,7 @@ import AppCalendar from '../Calendar/Calendar';
 import CustomDatePicker from '../../composants/CustomDatePicker';
 import UserSelectPicker from '../../composants/UserSelectPicker';
 // import history from '../../history';
-import { updateDatePicker, updateUserPicker } from '../../actions/main.actions';
+import { updateDatePicker, updateUserPicker, getEventUser } from '../../actions/main.actions';
 
 
 class Landing extends Component {
@@ -30,6 +30,7 @@ class Landing extends Component {
 
   updateUser(e) {
     this.props.updateUserPicker(e.target.value);
+    this.props.getEventUser(e.target.value);
   }
 
   render() {
@@ -56,4 +57,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { updateDatePicker, updateUserPicker })(Landing);
+export default connect(mapStateToProps, { updateDatePicker, updateUserPicker, getEventUser })(Landing);

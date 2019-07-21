@@ -7,18 +7,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { updateDatePicker } from '../../actions/main.actions';
 
 const localizer = momentLocalizer(moment);
-const myEventsList = [
-  {
-    start: new Date(),
-    end: new Date(moment().add(1, 'days')),
-    title: 'Some title'
-  },
-  {
-    start: new Date(moment().add(2, 'days')),
-    end: new Date(moment().add(2, 'days')),
-    title: 'Some title'  
-  }
-];
+
 
 class MyCalendar extends Component {
 
@@ -43,7 +32,7 @@ class MyCalendar extends Component {
       <div className="main-calendar">
         <Calendar
           localizer={this.state.currentDateSelected}
-          events={myEventsList}
+          events={this.props.data.EventList}
           startAccessor="start"
           endAccessor="end"
           defaultView="week"
@@ -65,6 +54,7 @@ function mapStateToProps(state) {
       Home: state.main.Home,
       SelectStatus: state.main.SelectStatus,
       DateSelected: state.main.DateSelected,
+      EventList: state.main.EventList
     }
   };
 }

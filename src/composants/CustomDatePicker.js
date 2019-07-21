@@ -11,7 +11,6 @@ function CustomDatePicker(props) {
         id="date"
         label={name}
         type="date"
-        defaultValue={DateSelected}
         value={DateSelected}
         InputLabelProps={{
           shrink: true,

@@ -9,7 +9,6 @@ function UserSelectPicker(props) {
   const DateSelected = props.date;
   const { user } = props;
 
-  
   return (
     <form noValidate>
        <InputLabel htmlFor="outlined-age-simple">Utilisateur</InputLabel>

@@ -17,12 +17,14 @@ The calendar should have the following features :
 - It should have a datepicker that will change the calendar's date
 - OK
 
-- It should have a picker that can switch between calendar users and load theirs events accordingly 
-- 
+- It should have a picker that can switch between calendar users and load theirs events accordingly
+- OK 
 
 - It should display all the events of the selected user
+- ? 
 
 - It should display a form when the user click on an empty time slot and allow him to create an event in the calendar
+- 
 
 ### Event
 
