@@ -18,7 +18,8 @@ import Button         from '@material-ui/core/Button';
 // import history from '../../history';
 import { 
   closeModal, updateTextModal, updateModalStartDate, updateModalEndDate, 
-  updateUserModal, createNewEventAction, updateModalStartTime, updateModalEndTime
+  updateUserModal, createNewEventAction, updateModalStartTime, updateModalEndTime,
+  deleteEvent, updateEventAction
    } from '../../actions/main.actions';
 
 
@@ -40,6 +41,12 @@ class ModalCreateEvent extends Component {
   createEventTrigger() {
     if(this.props.data.NewEventUser !== ''){
       this.props.createNewEventAction();
+    }
+  }
+
+  updateEventTrigger() {
+    if(this.props.data.NewEventUser !== ''){
+      this.props.updateEventAction();
     }
   }
 
@@ -121,8 +128,8 @@ class ModalCreateEvent extends Component {
             <MenuItem value='kevin'   >Kevin</MenuItem>
           </Select>
           </div>
-            <Button variant="outlined" onClick={() => { this.createEventTrigger() }} >
-              Create event
+            <Button variant="outlined" onClick={() => { this.props.data.modalUpdate ? this.updateEventTrigger() : this.createEventTrigger() }} >
+              {this.props.data.modalUpdate ? 'Update an event': 'Create an event'}
             </Button>
         </form>
         );
@@ -138,8 +145,13 @@ class ModalCreateEvent extends Component {
         >
           <div  className="modal-paper">
               <Typography variant="h6" id="modal-title">
-                 Create an event
+                 {this.props.data.modalUpdate ? 'Update an event': 'Create an event'}
               </Typography>
+              {this.props.data.modalUpdate ? 
+               <Button variant="outlined" onClick={() => { this.props.deleteEvent() }} >
+                Delete Event 
+               </Button>
+              : ''}
               {this.ModalForm()}
           </div>
         </Modal>
@@ -160,12 +172,14 @@ function mapStateToProps(state) {
       NewEventText: state.main.NewEventText,
       NewEventUser: state.main.NewEventUser,
       NewEventStartTime: state.main.NewEventStartTime,
-      NewEventEndTime: state.main.NewEventEndTime
+      NewEventEndTime: state.main.NewEventEndTime,
+      modalUpdate : state.main.modalUpdate
     }
   };
 }
 
 export default connect(mapStateToProps, { 
   closeModal, updateTextModal, updateModalStartDate, updateModalEndDate, 
-  updateUserModal, createNewEventAction, updateModalEndTime, updateModalStartTime
+  updateUserModal, createNewEventAction, updateModalEndTime, updateModalStartTime,
+  deleteEvent, updateEventAction
 })(ModalCreateEvent);

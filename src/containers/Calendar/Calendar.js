@@ -4,7 +4,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import './Calendar.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import { updateDatePicker, createEvent } from '../../actions/main.actions';
+import { updateDatePicker, createEvent , updateEvent} from '../../actions/main.actions';
 
 const localizer = momentLocalizer(moment);
 
@@ -21,10 +21,16 @@ class MyCalendar extends Component {
   selectSlot = (e) => {
     this.props.createEvent(e);
   }
+  selectEvent = (e) => {
+    console.log(e);
+    this.props.updateEvent(e);
+  }
 
   getDateCalendar() {
    return this.props.data.SelectStatus ? new Date(this.props.data.DateSelected) : null;
   }
+
+
 
   render() {
 
@@ -42,6 +48,7 @@ class MyCalendar extends Component {
           onSelectSlot={this.selectSlot}
           date={this.getDateCalendar()}
           onNavigate={(date) => { this.props.updateDatePicker(date.toISOString().slice(0, 10))  }}
+          onSelectEvent={this.selectEvent}
         />
       </div>
     );
@@ -59,4 +66,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {updateDatePicker, createEvent})(MyCalendar);
+export default connect(mapStateToProps, {updateDatePicker, createEvent, updateEvent})(MyCalendar);

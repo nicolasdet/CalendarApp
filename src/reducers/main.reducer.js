@@ -11,7 +11,8 @@ import {
   UPDATE_USER_MODAL,
   UPDATE_MODAL_START_TIME,
   UPDATE_MODAL_END_TIME,
-  EMPTY_MODAL
+  EMPTY_MODAL,
+  UPDATE_EVENT
 } from '../actions/main.actions';
 
 const defaultState = {
@@ -26,8 +27,10 @@ const defaultState = {
   NewEventEnd: new Date().toISOString().slice(0, 10),
   NewEventEndTime: '00:00:00',
   modalCreateEvent: false,
+  modalUpdate: false,
   NewEventText:  '',
   NewEventUser: '',
+  currentElement: null,
 };
 
 const chatsReducer = (state = defaultState, action) => {
@@ -63,10 +66,25 @@ const chatsReducer = (state = defaultState, action) => {
         NewEventEndTime: action.payload.end.toISOString().slice(11, 19),
         modalCreateEvent: true,
       };  
+    case UPDATE_EVENT:
+        return {
+        ...state,
+        NewEvent: action.payload,
+        NewEventStart: action.payload.start.toISOString().slice(0, 10),
+        NewEventEnd: action.payload.end.toISOString().slice(0, 10),
+        NewEventStartTime: action.payload.start.toISOString().slice(11, 19),
+        NewEventEndTime: action.payload.end.toISOString().slice(11, 19),
+        NewEventText: action.payload.title,
+        currentElement: action.payload.id,
+        NewEventUser: state.UserSelected,
+        modalUpdate: true,
+        modalCreateEvent: true,
+      };      
     case CLOSE_MODAL:
           return {
         ...state,
         modalCreateEvent: false,
+        modalUpdate: false,
       };   
     case UPDATE_MODAL_TEXT:
            return {
