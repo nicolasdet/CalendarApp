@@ -12,6 +12,7 @@ The application should simply be one view along with a dialog / popup :
 The calendar should have the following features :
 
 - It should present a week view of the current date where each day of week the can be seen along with its hours in a simple UI
+- OK
 
 - It should have a datepicker that will change the calendar's date
 
@@ -31,7 +32,10 @@ The event page will just display the details of the selected event along with 2 
 ### Bonuses :
 
 - Implement a montly view 
+- OK
 - Implement a daily view
+- OK
+
 - Show a preview of the to-be-created event on the calendar while creating / editing an event
 - Detect collision when trying to create an event on a non-empty timeslot and display an error message / toast.
 - Load the calendar of 2 users side by side to prevent collisions when creating an event 

@@ -3,7 +3,7 @@ import ReactDOM 	from "react-dom";
 /* Routes */
 import { GetRoutes } from '../../routes';
 import { Router } from "react-router-dom";
-import history from '../../history';
+// import history from '../../history';
 /* Redux */
 import { Provider } 					from 'react-redux';
 import thunk 							from 'redux-thunk';
@@ -20,7 +20,7 @@ export {store};
 it('renders correctly', () => {
   const tree = renderer
     .create(<Provider store={store}>
-	<Router history={history}>
+	<Router>
 		<Landing />
 	</Router>
   </Provider>)
