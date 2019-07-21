@@ -62,16 +62,29 @@ reactjs + redux
 
 ### Dépendances principales
 
-react-big-calendar - Composant principal de calendrier. 
+
+react-big-calendar - Composant principal de calendrier.
+
+
 @material-ui       - Ui kit pour react. 
+
+
 redux-thunk        - redux asynchrone
+
+
 react-router-dom   - router
+
+
 eslint             - lint
 
 ## Autres 
 
 src/api/userEvent.js    		contient les variables qui remplacent les data d'une api.  
+
 src/actions/userEvents.js 		contient toutes les actions. 
+
 src/reducers/main.reducers 		reducers + state initial.
+
 src/composants/					composants fonction pur. 
+
 src/containers/                 composants class react.  
