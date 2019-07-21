@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 /* Import des reducers */
-import mainReducer   from './reducers/main.reducer';
+import mainReducer from './reducers/main.reducer';
 
 
 const todoApp = combineReducers({
