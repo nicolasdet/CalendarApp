@@ -5,8 +5,12 @@ import { connect } from 'react-redux';
 import './Landing.css';
 import AppTitle from '../../composants/AppTitle';
 import AppCalendar from '../Calendar/Calendar';
+import ModalCreateEvent from '../ModalCreateEvent/ModalCreateEvent';
 import CustomDatePicker from '../../composants/CustomDatePicker';
 import UserSelectPicker from '../../composants/UserSelectPicker';
+import Typography     from '@material-ui/core/Typography';
+import Modal          from '@material-ui/core/Modal';
+import InputLabel from '@material-ui/core/InputLabel';
 // import history from '../../history';
 import { updateDatePicker, updateUserPicker, getEventUser } from '../../actions/main.actions';
 
@@ -32,7 +36,7 @@ class Landing extends Component {
     this.props.updateUserPicker(e.target.value);
     this.props.getEventUser(e.target.value);
   }
-
+  
   render() {
     return (
       <div className="main">
@@ -42,6 +46,7 @@ class Landing extends Component {
           <UserSelectPicker user={this.props.data.UserSelected} update={this.updateUser} />
         </div>
         <AppCalendar />
+        <ModalCreateEvent />
       </div>
     );
   }
@@ -52,7 +57,8 @@ function mapStateToProps(state) {
     data: {
       Home: state.main.Home,
       DateSelected: state.main.DateSelected,
-      UserSelected: state.main.UserSelected
+      UserSelected: state.main.UserSelected,
+      modalCreateEvent: state.main.modalCreateEvent
     }
   };
 }

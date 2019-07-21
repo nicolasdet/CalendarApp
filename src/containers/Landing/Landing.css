@@ -12,3 +12,20 @@ main {
 	display: flex;
 	justify-content: space-around;
 }
+.modal-paper {
+	width: 80%;
+	background-color: white;
+	padding: 4%;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	position: absolute;
+	top: 45%;
+	left: 10%;
+
+}
+.modal-text {
+	padding-top: 15px;
+	text-align: center;
+}

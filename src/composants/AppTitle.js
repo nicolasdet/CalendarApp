@@ -2,7 +2,7 @@ import React from 'react';
 
 const AppTitle = () => (
   <div className="title">
-    <h1>Calendrier</h1>
+    <h1>Calendar</h1>
   </div>
 );
 

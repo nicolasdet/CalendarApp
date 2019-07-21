@@ -2,7 +2,7 @@ import moment from 'moment';
 
 // On simule une api qui répond du json. 
 
-export const EVENT_LIST_KEVIN = [
+export let EVENT_LIST_KEVIN = [
   {
     start: new Date(),
     end:  new Date(moment().add(1, 'hour')),
@@ -25,7 +25,7 @@ export const EVENT_LIST_KEVIN = [
   }
 ];
 
-export const EVENT_LIST_NICOLAS = [
+export let EVENT_LIST_NICOLAS = [
  {
     start: new Date('2019-07-24 15:00:00'),
     end: new Date('2019-07-24 18:00:00'),

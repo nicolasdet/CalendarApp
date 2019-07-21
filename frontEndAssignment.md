@@ -24,7 +24,7 @@ The calendar should have the following features :
 - ? 
 
 - It should display a form when the user click on an empty time slot and allow him to create an event in the calendar
-- 
+- OK
 
 ### Event
 

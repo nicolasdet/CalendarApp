@@ -11,7 +11,7 @@ function UserSelectPicker(props) {
 
   return (
     <form noValidate>
-       <InputLabel htmlFor="outlined-age-simple">Utilisateur</InputLabel>
+       <InputLabel htmlFor="outlined-age-simple">user</InputLabel>
         <Select
           value={user}
           onChange={props.update}
