@@ -8,9 +8,7 @@ import AppCalendar from '../Calendar/Calendar';
 import ModalCreateEvent from '../ModalCreateEvent/ModalCreateEvent';
 import CustomDatePicker from '../../composants/CustomDatePicker';
 import UserSelectPicker from '../../composants/UserSelectPicker';
-import Typography     from '@material-ui/core/Typography';
-import Modal          from '@material-ui/core/Modal';
-import InputLabel from '@material-ui/core/InputLabel';
+
 // import history from '../../history';
 import { updateDatePicker, updateUserPicker, getEventUser } from '../../actions/main.actions';
 
@@ -19,10 +17,6 @@ class Landing extends Component {
 
   constructor(props) {
     super(props);
-
-    this.state = {
-      esling: false
-    };
 
     this.updateDate = this.updateDate.bind(this);
     this.updateUser = this.updateUser.bind(this);

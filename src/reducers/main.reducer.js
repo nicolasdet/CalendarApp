@@ -28,7 +28,7 @@ const defaultState = {
   NewEventEndTime: '00:00:00',
   modalCreateEvent: false,
   modalUpdate: false,
-  NewEventText:  '',
+  NewEventText: '',
   NewEventUser: '',
   currentElement: null,
 };
@@ -50,14 +50,14 @@ const chatsReducer = (state = defaultState, action) => {
       return {
         ...state,
         EventList: action.payload,
-      };    
+      };
     case UPDATE_USER:
-       return {
+      return {
         ...state,
         UserSelected: action.payload,
-      };  
+      };
     case CREATE_EVENT:
-        return {
+      return {
         ...state,
         NewEvent: action.payload,
         NewEventStart: action.payload.start.toISOString().slice(0, 10),
@@ -65,9 +65,9 @@ const chatsReducer = (state = defaultState, action) => {
         NewEventStartTime: action.payload.start.toISOString().slice(11, 19),
         NewEventEndTime: action.payload.end.toISOString().slice(11, 19),
         modalCreateEvent: true,
-      };  
+      };
     case UPDATE_EVENT:
-        return {
+      return {
         ...state,
         NewEvent: action.payload,
         NewEventStart: action.payload.start.toISOString().slice(0, 10),
@@ -79,45 +79,45 @@ const chatsReducer = (state = defaultState, action) => {
         NewEventUser: state.UserSelected,
         modalUpdate: true,
         modalCreateEvent: true,
-      };      
+      };
     case CLOSE_MODAL:
-          return {
+      return {
         ...state,
         modalCreateEvent: false,
         modalUpdate: false,
-      };   
+      };
     case UPDATE_MODAL_TEXT:
-           return {
+      return {
         ...state,
         NewEventText: action.payload,
       };
     case UPDATE_MODAL_START_DATE:
-       return {
+      return {
         ...state,
         NewEventStart: action.payload,
-      };  
+      };
     case UPDATE_MODAL_END_DATE:
-       return {
+      return {
         ...state,
         NewEventEnd: action.payload,
       };
     case UPDATE_USER_MODAL:
-       return {
+      return {
         ...state,
         NewEventUser: action.payload,
-      };   
+      };
     case UPDATE_MODAL_START_TIME:
-       return {
+      return {
         ...state,
         NewEventStartTime: action.payload,
-      };  
+      };
     case UPDATE_MODAL_END_TIME:
-       return {
+      return {
         ...state,
         NewEventEndTime: action.payload,
-      }; 
-    case EMPTY_MODAL:  
-       return {
+      };
+    case EMPTY_MODAL:
+      return {
         ...state,
         NewEventStart: new Date().toISOString().slice(0, 10),
         NewEventEnd: new Date().toISOString().slice(0, 10),
@@ -125,7 +125,7 @@ const chatsReducer = (state = defaultState, action) => {
         NewEventEndTime: '00:00:00',
         NewEventText: '',
         modalCreateEvent: false,
-      };    
+      };
     default:
       return state;
   }
