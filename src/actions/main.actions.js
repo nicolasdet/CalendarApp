@@ -12,6 +12,7 @@ export const UPDATE_MODAL_END_DATE = 'UPDATE_MODAL_END_DATE';
 export const UPDATE_USER_MODAL = 'UPDATE_USER_MODAL';
 export const UPDATE_MODAL_START_TIME = 'UPDATE_MODAL_START_TIME';
 export const UPDATE_MODAL_END_TIME = 'UPDATE_MODAL_END_TIME';
+export const EMPTY_MODAL = 'EMPTY_MODAL';
 
 export const updateDatePicker = dateValue => ({
   type: UPDATE_DATE,
@@ -55,7 +56,6 @@ export const createNewEventAction = () => {
         end:  new Date(NewEventEnd +'T'+ NewEventEndTime),
         title: NewEventText
       };
-      console.log(event);
       // API POST
       if(NewEventUser === 'kevin'){
         EVENT_LIST_KEVIN.push(event)
@@ -64,10 +64,14 @@ export const createNewEventAction = () => {
         EVENT_LIST_NICOLAS.push(event)
         dispatch(setEventListe(EVENT_LIST_NICOLAS));
       }
-        /*
-      */
+
+      dispatch(emptyModal());
   }
 }
+
+export const emptyModal = () => ({
+  type: EMPTY_MODAL,
+})
 
 export const closeModal = () => ({
     type: CLOSE_MODAL,

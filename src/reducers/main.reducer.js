@@ -10,7 +10,8 @@ import {
   UPDATE_MODAL_END_DATE,
   UPDATE_USER_MODAL,
   UPDATE_MODAL_START_TIME,
-  UPDATE_MODAL_END_TIME
+  UPDATE_MODAL_END_TIME,
+  EMPTY_MODAL
 } from '../actions/main.actions';
 
 const defaultState = {
@@ -96,7 +97,17 @@ const chatsReducer = (state = defaultState, action) => {
        return {
         ...state,
         NewEventEndTime: action.payload,
-      };      
+      }; 
+    case EMPTY_MODAL:  
+       return {
+        ...state,
+        NewEventStart: new Date().toISOString().slice(0, 10),
+        NewEventEnd: new Date().toISOString().slice(0, 10),
+        NewEventStartTime: '00:00:00',
+        NewEventEndTime: '00:00:00',
+        NewEventText: '',
+        modalCreateEvent: false,
+      };    
     default:
       return state;
   }
