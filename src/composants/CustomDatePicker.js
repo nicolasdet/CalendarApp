@@ -3,14 +3,16 @@ import TextField from '@material-ui/core/TextField';
 
 function CustomDatePicker(props) {
   const DateSelected = props.date;
+  const { name } = props;
 
   return (
     <form noValidate>
       <TextField
         id="date"
-        label="Birthday"
+        label={name}
         type="date"
         defaultValue={DateSelected}
+        value={DateSelected}
         InputLabelProps={{
           shrink: true,
         }}

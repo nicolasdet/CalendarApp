@@ -6,8 +6,9 @@ import './Landing.css';
 import AppTitle from '../../composants/AppTitle';
 import AppCalendar from '../Calendar/Calendar';
 import CustomDatePicker from '../../composants/CustomDatePicker';
+import UserSelectPicker from '../../composants/UserSelectPicker';
 // import history from '../../history';
-import { updateDatePicker } from '../../actions/main.actions';
+import { updateDatePicker, updateUserPicker } from '../../actions/main.actions';
 
 
 class Landing extends Component {
@@ -20,17 +21,25 @@ class Landing extends Component {
     };
 
     this.updateDate = this.updateDate.bind(this);
+    this.updateUser = this.updateUser.bind(this);
   }
 
   updateDate(e) {
     this.props.updateDatePicker(e.target.value);
   }
 
+  updateUser(e) {
+    this.props.updateUserPicker(e.target.value);
+  }
+
   render() {
     return (
       <div className="main">
         <AppTitle />
-        <CustomDatePicker date={this.props.data.DateSelected} update={this.updateDate} />
+        <div className="top-elements">
+          <CustomDatePicker date={this.props.data.DateSelected} update={this.updateDate} />
+          <UserSelectPicker user={this.props.data.UserSelected} update={this.updateUser} />
+        </div>
         <AppCalendar />
       </div>
     );
@@ -41,9 +50,10 @@ function mapStateToProps(state) {
   return {
     data: {
       Home: state.main.Home,
-      DateSelected: state.main.DateSelected
+      DateSelected: state.main.DateSelected,
+      UserSelected: state.main.UserSelected
     }
   };
 }
 
-export default connect(mapStateToProps, { updateDatePicker })(Landing);
+export default connect(mapStateToProps, { updateDatePicker, updateUserPicker })(Landing);

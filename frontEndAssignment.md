@@ -15,8 +15,10 @@ The calendar should have the following features :
 - OK
 
 - It should have a datepicker that will change the calendar's date
+- OK
 
 - It should have a picker that can switch between calendar users and load theirs events accordingly 
+- 
 
 - It should display all the events of the selected user
 
@@ -25,7 +27,7 @@ The calendar should have the following features :
 ### Event
 
 The event page will just display the details of the selected event along with 2 actions :
-
+- show event
 - delete the selected event
 - edit the selected event
 
