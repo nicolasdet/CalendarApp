@@ -21,7 +21,7 @@ The calendar should have the following features :
 - OK 
 
 - It should display all the events of the selected user
-- ? 
+- OK
 
 - It should display a form when the user click on an empty time slot and allow him to create an event in the calendar
 - OK
@@ -30,8 +30,13 @@ The calendar should have the following features :
 
 The event page will just display the details of the selected event along with 2 actions :
 - show event
+- OK
+
 - delete the selected event
+- OK
+
 - edit the selected event
+- OK
 
 ### Bonuses :
 
@@ -59,8 +64,18 @@ Once you are done, please share a link to your repository
 We will also take the following into consideration :
 
 - Maintainability of the code
-  - Code linting, test coverage..
+  - Code linting
+  - OK 80%
+
+  - test coverage..
+
   - Documentation
+  - OK Readme
+
   - Clean code
-- User Experience
-- Creativity
+  
+  
+  - User Experience
+  - OK 50%
+
+  - Creativity

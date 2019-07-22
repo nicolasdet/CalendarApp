@@ -86,26 +86,23 @@ export const deleteEvent = () => {
   return (dispatch, getState) => {
     const state = getState();
     const { currentElement, UserSelected } = state.main;
-    //console.log(EVENT_LIST_KEVIN);
           // API Delete
-    /*
-      if(UserSelected === 'kevin'){
+      if(UserSelected === 'kevin') {
 
-        EVENT_LIST_KEVIN = EVENT_LIST_KEVIN.filter(x => {
+        let newList = EVENT_LIST_KEVIN.filter(x => {
           return x.id != currentElement;
-        })
-
-        dispatch(setEventListe(EVENT_LIST_KEVIN));
+        });
+        
+        dispatch(setEventListe(newList));
 
       }else if(UserSelected === 'nicolas') {
 
-        EVENT_LIST_NICOLAS = EVENT_LIST_KEVIN.filter(x => {
+        let newList = EVENT_LIST_NICOLAS.filter(x => {
           return x.id != currentElement;
         })
 
-        dispatch(setEventListe(EVENT_LIST_NICOLAS));
+        dispatch(setEventListe(newList));
       }
-      */
       dispatch(emptyModal());
   };
 };
@@ -113,9 +110,36 @@ export const deleteEvent = () => {
 export const updateEventAction = () => {
    return (dispatch, getState) => { 
     const state = getState();
-    const { currentElement, UserSelected } =  state.main;
+    const { currentElement, UserSelected, NewEventText, NewEventStart, NewEventEnd, NewEventStartTime, NewEventEndTime  } =  state.main;
+    if(UserSelected === 'kevin') {
+      
+      let event = {
+        start: new Date(NewEventStart +'T'+ NewEventStartTime),
+        end:  new Date(NewEventEnd +'T'+ NewEventEndTime),
+        title: NewEventText
+      };
 
-      dispatch(emptyModal());
+      let item = currentElement;
+      let items = EVENT_LIST_KEVIN;
+      let foundIndex = items.findIndex(x => x.id == item);
+      items[foundIndex] = event;
+      dispatch(setEventListe(items));
+
+    }else if(UserSelected === 'nicolas') {
+
+      let event = {
+        start: new Date(NewEventStart +'T'+ NewEventStartTime),
+        end:  new Date(NewEventEnd +'T'+ NewEventEndTime),
+        title: NewEventText
+      };
+
+      var item = currentElement;
+      var items = EVENT_LIST_NICOLAS;
+      let foundIndex = items.findIndex(x => x.id == item);
+      items[foundIndex] = event;
+      dispatch(setEventListe(items));
+    }
+    dispatch(emptyModal());
   };
 };
 

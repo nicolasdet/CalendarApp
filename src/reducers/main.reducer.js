@@ -14,6 +14,7 @@ import {
   EMPTY_MODAL,
   UPDATE_EVENT
 } from '../actions/main.actions';
+import moment from 'moment';
 
 const defaultState = {
   Home: true,
@@ -33,7 +34,7 @@ const defaultState = {
   currentElement: null,
 };
 
-const chatsReducer = (state = defaultState, action) => {
+const mainReducer = (state = defaultState, action) => {
   switch (action.type) {
     case UPDATE_HOME:
       return {
@@ -62,8 +63,8 @@ const chatsReducer = (state = defaultState, action) => {
         NewEvent: action.payload,
         NewEventStart: action.payload.start.toISOString().slice(0, 10),
         NewEventEnd: action.payload.end.toISOString().slice(0, 10),
-        NewEventStartTime: action.payload.start.toISOString().slice(11, 19),
-        NewEventEndTime: action.payload.end.toISOString().slice(11, 19),
+        NewEventStartTime: moment(action.payload.start).format('hh:mm:ss'),
+        NewEventEndTime: moment(action.payload.end).format('hh:mm:ss'),
         modalCreateEvent: true,
       };
     case UPDATE_EVENT:
@@ -72,8 +73,8 @@ const chatsReducer = (state = defaultState, action) => {
         NewEvent: action.payload,
         NewEventStart: action.payload.start.toISOString().slice(0, 10),
         NewEventEnd: action.payload.end.toISOString().slice(0, 10),
-        NewEventStartTime: action.payload.start.toISOString().slice(11, 19),
-        NewEventEndTime: action.payload.end.toISOString().slice(11, 19),
+        NewEventStartTime: moment(action.payload.start).format('hh:mm:ss'),
+        NewEventEndTime: moment(action.payload.end).format('hh:mm:ss'),
         NewEventText: action.payload.title,
         currentElement: action.payload.id,
         NewEventUser: state.UserSelected,
@@ -125,10 +126,11 @@ const chatsReducer = (state = defaultState, action) => {
         NewEventEndTime: '00:00:00',
         NewEventText: '',
         modalCreateEvent: false,
+        modalUpdate: false,
       };
     default:
       return state;
   }
 };
 
-export default chatsReducer;
+export default mainReducer;

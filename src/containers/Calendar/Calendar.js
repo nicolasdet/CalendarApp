@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
+import moment_timezone from 'moment-timezone';
 import './Calendar.css';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import { updateDatePicker, createEvent, updateEvent } from '../../actions/main.actions';
 
-const localizer = momentLocalizer(moment);
+moment_timezone.tz.setDefault('Europe/Paris');
+const localizer = momentLocalizer(moment_timezone);
 
 
 class MyCalendar extends Component {
