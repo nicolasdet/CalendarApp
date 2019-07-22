@@ -22,6 +22,7 @@ La page se recharge à chaque modification.
 ### Lancer les tests unitaires
 
 - `yarn test` (ou `npm test`)
+- Il n'y a pas réelement de test. On pourrais faire des snapshot avec jest. 
 
 Lance le gestionnaire de tests en mode interactif.
 
@@ -46,7 +47,7 @@ On peut afficher les rendez d'un user en le sélectionnant.
 
 Les plages horaires sont de 1 h 30.
 
-Pour créer un événement, cliqué sur une case ou glisser le curseur le long d'une plage horaire.
+Pour créer un événement, cliquer sur une case ou glisser le curseur le long d'une plage horaire.
 
 Remplir le formulaire. La seule condition et que l'on doit sélectionner un user.
 
